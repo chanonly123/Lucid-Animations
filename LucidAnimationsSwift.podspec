@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "SwiftyLib/**/*.{h,m,swift}"
+  spec.source_files  = "LucidAnimationsSwift/**/*.{h,m,swift}"
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
