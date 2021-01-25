@@ -9,7 +9,7 @@
 
 ## Examples 1: Multi view animations
 
-![alt tag](https://github.com/chanonly123/Lucid-Animations/blob/master/demo1.gif)
+![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo1.gif)
 
 ```
 override func viewDidLoad() {
@@ -25,7 +25,7 @@ override func viewDidLoad() {
 
 ## Example 2: Chaining Animation
 
-![alt tag](https://github.com/chanonly123/Lucid-Animations/blob/master/demo2.gif)
+![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo1.gif)
 
 ```
 @IBAction  func  actionButton() {
