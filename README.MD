@@ -9,7 +9,7 @@
 
 ## Examples 1: Multi view animations
 
-![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo1.gif)
+![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo2.gif)
 
 ```
 override func viewDidLoad() {
