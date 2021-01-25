@@ -28,7 +28,7 @@ override func viewDidLoad() {
 ![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo1.gif)
 
 ```
-@IBAction  func  actionButton() {
+@IBAction func actionButton() {
     if box.isHidden {
         lucid.flat { self.box.isHidden = false }
         lucid.anim { self.view.layoutIfNeeded() }
