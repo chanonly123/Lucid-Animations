@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LucidAnimationsSwift"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "Animations made lucid (simple / easy / flexible)"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/chanonly123/Lucid-Animations.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/chanonly123/Lucid-Animations.git", :branch => "main", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

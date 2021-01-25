@@ -3,9 +3,7 @@
 
 ### Write clutter free animation code in swift
 
-  
 
-  
 
 ## Examples 1: Multi view animations
 
@@ -42,3 +40,15 @@ override func viewDidLoad() {
     }
 }
 ```
+
+## Install
+
+#### Cocoapods
+
+Add `pod 'LucidAnimationsSwift'` to you `Podfile`
+Then run `pod install` in terminal
+Then add `import LucidAnimationsSwift` in you swift file
+
+#### Manual
+
+drag `LucidAnimationsSwift.swift` file to you project
