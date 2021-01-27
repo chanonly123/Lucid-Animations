@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "17412CFD25C16FDF00F917FC"
+               BuildableName = "LucidAnimationsSwiftTests.xctest"
+               BlueprintName = "LucidAnimationsSwiftTests"
+               ReferencedContainer = "container:LucidAnimationsSwift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
