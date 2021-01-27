@@ -2,10 +2,11 @@
 # Lucid Animations swift
 
 ### Write clutter free animation code in swift
-
 [![Build Status](https://www.travis-ci.com/chanonly123/Lucid-Animations.svg?branch=main)](https://www.travis-ci.com/chanonly123/Lucid-Animations)
-
-## Examples 1: Multi view animations
+### Usage
+##### Use `lucid` as sharedInstance or `let lucid = LucidAnim()`  
+&nbsp;
+#### Examples 1: Multi view animations
 
 ![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo2.gif)
 
@@ -21,10 +22,8 @@ override func viewDidLoad() {
 }
 ```
 
-## Example 2: Chaining Animation
-
+#### Example 2: Chaining Animation
 ![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo1.gif)
-
 ```
 @IBAction func actionButton() {
     if box.isHidden {
@@ -38,6 +37,25 @@ override func viewDidLoad() {
         lucid.anim { self.view.layoutIfNeeded() }
         lucid.execute()
     }
+}
+```
+
+#### Example 2: Keeping Lucid Object 
+
+![alt tag](https://github.com/chanonly123/Lucid-Animations/raw/main/demo3.gif)
+
+```
+lazy var rotateAnim: LucidAnim = {
+    let rotateAnim = LucidAnim()
+    rotateAnim.set(duration: 0.5).anim { self.box2.transform = .init(rotationAngle: -CGFloat.pi / 4) }
+    rotateAnim.set(duration: 0.5).anim { self.box2.transform = .init(rotationAngle: CGFloat.pi) }
+    rotateAnim.set(duration: 0.5).anim { self.box2.layer.cornerRadius = self.box2.bounds.height / 2 }
+    rotateAnim.set(duration: 0.5).anim { self.box2.layer.cornerRadius = 0 }
+    return rotateAnim
+}()
+
+@IBAction func actionAnimation2() {
+    rotateAnim.execute()
 }
 ```
 
