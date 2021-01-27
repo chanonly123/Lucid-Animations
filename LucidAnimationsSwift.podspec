@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "LucidAnimationsSwift/**/*.{h,m,swift}"
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  # spec.exclude_files = "Classes/Exclude"
+  spec.exclude_files = "LucidAnimationsSwift/LucidAnimationsSwiftTests"
 
   # spec.public_header_files = "Classes/**/*.h"
 
