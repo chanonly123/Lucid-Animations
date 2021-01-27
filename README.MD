@@ -3,7 +3,7 @@
 
 ### Write clutter free animation code in swift
 
-
+[![Build Status](https://www.travis-ci.com/chanonly123/Lucid-Animations.svg?branch=main)](https://www.travis-ci.com/chanonly123/Lucid-Animations)
 
 ## Examples 1: Multi view animations
 
