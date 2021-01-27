@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             lucid.set(bounce: true).set(duration: 1.0).anim { self.box.alpha = 1; self.box.transform = .identity }
             lucid.execute()
         } else {
-            lucid.set(duration: 2.0).anim { self.box.alpha = 0; self.box.transform = .init(translationX: 200, y: 0) }
+            lucid.set(duration: 2.1).anim { self.box.alpha = 0; self.box.transform = .init(translationX: 200, y: 0) }
             lucid.flat { self.box.isHidden = true }
             lucid.anim { self.view.layoutIfNeeded() }
             lucid.execute()
