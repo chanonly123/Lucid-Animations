@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var box: UIView!
+    @IBOutlet weak var box2: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,19 @@ class ViewController: UIViewController {
             lucid.anim { self.view.layoutIfNeeded() }
             lucid.execute()
         }
+    }
+    
+    lazy var rotateAnim: LucidAnim = {
+        let rotateAnim = LucidAnim()
+        rotateAnim.set(duration: 0.5).anim { self.box2.transform = .init(rotationAngle: -CGFloat.pi / 4) }
+        rotateAnim.set(duration: 0.5).anim { self.box2.transform = .init(rotationAngle: CGFloat.pi) }
+        rotateAnim.set(duration: 0.5).anim { self.box2.layer.cornerRadius = self.box2.bounds.height / 2 }
+        rotateAnim.set(duration: 0.5).anim { self.box2.layer.cornerRadius = 0 }
+        return rotateAnim
+    }()
+    
+    @IBAction func actionAnimation2() {
+        rotateAnim.execute()
     }
 }
 

@@ -9,7 +9,7 @@ import UIKit
 
 public let lucid = LucidAnim()
 
-struct LucidAnimValues {
+struct LucidAnimValues: Equatable {
     var anim: Any = {} // (()->Void) or ((Int)->Void)
     
     var animated: Bool = true
@@ -46,22 +46,37 @@ struct LucidAnimValues {
     func isSerialAnim() -> Bool {
         return anim is ((Int) -> Void)
     }
+    
+    static func == (lhs: LucidAnimValues, rhs: LucidAnimValues) -> Bool {
+        return lhs.animated == rhs.animated &&
+            lhs.delay == rhs.delay &&
+            lhs.options == rhs.options &&
+            lhs.bounce == rhs.bounce &&
+            lhs.damping == rhs.damping &&
+            lhs.velocity == rhs.velocity &&
+            lhs.viewIndex == rhs.viewIndex
+    }
 }
 
 public class LucidAnim {
     var queue = [LucidAnimValues]()
+    var backupQueue = [LucidAnimValues]()
     var currentValues = LucidAnimValues()
+    var isTesting = false
     
-//    func clear() {
-//        queue.removeAll()
-//        currentValues = SimpleAnimValues()
-//    }
+    public init() {}
+    
+    public func clear() {
+        queue.removeAll()
+        backupQueue.removeAll()
+        currentValues = LucidAnimValues()
+    }
     
     public func flat(comp: @escaping (() -> Void)) {
         currentValues.animated = false
         currentValues.anim = comp
         
-        queue.append(currentValues)
+        backupQueue.append(currentValues)
         currentValues = LucidAnimValues()
     }
     
@@ -69,7 +84,7 @@ public class LucidAnim {
         currentValues.animated = true
         currentValues.anim = anim
         
-        queue.append(currentValues)
+        backupQueue.append(currentValues)
         currentValues = LucidAnimValues()
     }
     
@@ -84,12 +99,17 @@ public class LucidAnim {
             currentValues.viewIndex = i
             currentValues.animated = true
             currentValues.anim = anim
-            queue.append(currentValues)
+            backupQueue.append(currentValues)
         }
         currentValues = LucidAnimValues()
     }
     
     public func execute() {
+        queue.removeAll()
+        queue.append(contentsOf: backupQueue)
+        if self === lucid {
+            backupQueue.removeAll()
+        }
         execute_()
     }
 
@@ -99,21 +119,28 @@ public class LucidAnim {
             if each.animated {
                 let shouldRunSerial = (queue.first?.isSerialAnim() ?? false) && each.isSerialAnim()
                 
-                let animEnd: ((Bool)->Void) = { finished in
+                let animation: (() -> Void) = {
+                    each.callAnimClosure()
+                }
+                
+                let animEnd: ((Bool) -> Void) = { finished in
                     if !finished { return }
                     if !shouldRunSerial {
                         self.execute_()
                     }
                 }
                 
-                if each.bounce {
-                    UIView.animate(withDuration: each.duration, delay: each.delay, usingSpringWithDamping: each.damping, initialSpringVelocity: each.velocity, options: each.options, animations: {
-                        each.callAnimClosure()
-                    }, completion: animEnd)
+                if isTesting {
+                    animation()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + each.duration + each.delay) {
+                        animEnd(true)
+                    }
                 } else {
-                    UIView.animate(withDuration: each.duration, delay: each.delay, options: each.options, animations: {
-                        each.callAnimClosure()
-                    }, completion: animEnd)
+                    if each.bounce {
+                        UIView.animate(withDuration: each.duration, delay: each.delay, usingSpringWithDamping: each.damping, initialSpringVelocity: each.velocity, options: each.options, animations: animation, completion: animEnd)
+                    } else {
+                        UIView.animate(withDuration: each.duration, delay: each.delay, options: each.options, animations: animation, completion: animEnd)
+                    }
                 }
                 
                 if shouldRunSerial {

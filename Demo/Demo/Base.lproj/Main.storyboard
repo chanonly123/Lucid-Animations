@@ -79,25 +79,39 @@
                                     <constraint firstItem="r3J-Ic-vpp" firstAttribute="width" secondItem="r3J-Ic-vpp" secondAttribute="height" id="bWH-sz-hI7"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6De-fV-rxb">
-                                <rect key="frame" x="170" y="824" width="74" height="30"/>
-                                <state key="normal" title="Hide/Show"/>
-                                <connections>
-                                    <action selector="actionButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wro-pd-Ixc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-cc-8zs">
+                                <rect key="frame" x="8" y="824" width="398" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6De-fV-rxb">
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="30"/>
+                                        <state key="normal" title="Hide/Show"/>
+                                        <connections>
+                                            <action selector="actionButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wro-pd-Ixc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-58-mHA">
+                                        <rect key="frame" x="199" y="0.0" width="199" height="30"/>
+                                        <state key="normal" title="Anim2"/>
+                                        <connections>
+                                            <action selector="actionAnimation2" destination="BYZ-38-t0r" eventType="touchUpInside" id="nyV-z5-XaW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6De-fV-rxb" secondAttribute="bottom" constant="8" id="QdW-p1-G4b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RtN-cc-8zs" secondAttribute="bottom" constant="8" id="Gca-7V-j0V"/>
                             <constraint firstItem="zpB-zB-AC6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XPt-vD-HWp"/>
-                            <constraint firstItem="6De-fV-rxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fHU-hb-9Nu"/>
+                            <constraint firstItem="RtN-cc-8zs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Xpw-o4-cuA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RtN-cc-8zs" secondAttribute="trailing" constant="8" id="mBm-u0-JD6"/>
                             <constraint firstItem="zpB-zB-AC6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="z1m-gS-WkZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="box" destination="JlC-7V-H2W" id="Yte-fP-7e3"/>
+                        <outlet property="box2" destination="2Hw-xi-buz" id="0m8-pt-OV0"/>
                         <outlet property="stackView" destination="zpB-zB-AC6" id="sxD-L8-eW9"/>
                     </connections>
                 </viewController>

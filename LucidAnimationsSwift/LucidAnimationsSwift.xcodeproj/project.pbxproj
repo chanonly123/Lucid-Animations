@@ -3,15 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1717B6BE25C1700200ACA8F6 /* LucidAnimationsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE840B25BADA3400A31C61 /* LucidAnimationsSwift.swift */; };
+		17412D0125C16FDF00F917FC /* LucidAnimationsSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412D0025C16FDF00F917FC /* LucidAnimationsSwiftTests.swift */; };
+		17412D0325C16FDF00F917FC /* LucidAnimationsSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1795AB8425BAD99E00FD4812 /* LucidAnimationsSwift.framework */; platformFilter = ios; };
 		1795AB8925BAD99E00FD4812 /* SimpleAnimationsSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1795AB8725BAD99E00FD4812 /* SimpleAnimationsSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17FE840C25BADA3400A31C61 /* LucidAnimationsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE840B25BADA3400A31C61 /* LucidAnimationsSwift.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		17412D0425C16FDF00F917FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1795AB7B25BAD99E00FD4812 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1795AB8325BAD99E00FD4812;
+			remoteInfo = LucidAnimationsSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		17412CFE25C16FDF00F917FC /* LucidAnimationsSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LucidAnimationsSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17412D0025C16FDF00F917FC /* LucidAnimationsSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucidAnimationsSwiftTests.swift; sourceTree = "<group>"; };
+		17412D0225C16FDF00F917FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1795AB8425BAD99E00FD4812 /* LucidAnimationsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LucidAnimationsSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1795AB8725BAD99E00FD4812 /* SimpleAnimationsSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleAnimationsSwift.h; sourceTree = "<group>"; };
 		1795AB8825BAD99E00FD4812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -19,6 +35,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		17412CFB25C16FDF00F917FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17412D0325C16FDF00F917FC /* LucidAnimationsSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1795AB8125BAD99E00FD4812 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17412CFF25C16FDF00F917FC /* LucidAnimationsSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				17412D0025C16FDF00F917FC /* LucidAnimationsSwiftTests.swift */,
+				17412D0225C16FDF00F917FC /* Info.plist */,
+			);
+			path = LucidAnimationsSwiftTests;
+			sourceTree = "<group>";
+		};
 		1795AB7A25BAD99E00FD4812 = {
 			isa = PBXGroup;
 			children = (
 				1795AB8625BAD99E00FD4812 /* LucidAnimationsSwift */,
+				17412CFF25C16FDF00F917FC /* LucidAnimationsSwiftTests */,
 				1795AB8525BAD99E00FD4812 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				1795AB8425BAD99E00FD4812 /* LucidAnimationsSwift.framework */,
+				17412CFE25C16FDF00F917FC /* LucidAnimationsSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +104,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		17412CFD25C16FDF00F917FC /* LucidAnimationsSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17412D0625C16FDF00F917FC /* Build configuration list for PBXNativeTarget "LucidAnimationsSwiftTests" */;
+			buildPhases = (
+				17412CFA25C16FDF00F917FC /* Sources */,
+				17412CFB25C16FDF00F917FC /* Frameworks */,
+				17412CFC25C16FDF00F917FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17412D0525C16FDF00F917FC /* PBXTargetDependency */,
+			);
+			name = LucidAnimationsSwiftTests;
+			productName = LucidAnimationsSwiftTests;
+			productReference = 17412CFE25C16FDF00F917FC /* LucidAnimationsSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1795AB8325BAD99E00FD4812 /* LucidAnimationsSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1795AB8C25BAD99E00FD4812 /* Build configuration list for PBXNativeTarget "LucidAnimationsSwift" */;
@@ -93,8 +146,12 @@
 		1795AB7B25BAD99E00FD4812 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					17412CFD25C16FDF00F917FC = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					1795AB8325BAD99E00FD4812 = {
 						CreatedOnToolsVersion = 12.3;
 						LastSwiftMigration = 1230;
@@ -115,11 +172,19 @@
 			projectRoot = "";
 			targets = (
 				1795AB8325BAD99E00FD4812 /* LucidAnimationsSwift */,
+				17412CFD25C16FDF00F917FC /* LucidAnimationsSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		17412CFC25C16FDF00F917FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1795AB8225BAD99E00FD4812 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,6 +195,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		17412CFA25C16FDF00F917FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1717B6BE25C1700200ACA8F6 /* LucidAnimationsSwift.swift in Sources */,
+				17412D0125C16FDF00F917FC /* LucidAnimationsSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1795AB8025BAD99E00FD4812 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,7 +214,52 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		17412D0525C16FDF00F917FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 1795AB8325BAD99E00FD4812 /* LucidAnimationsSwift */;
+			targetProxy = 17412D0425C16FDF00F917FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		17412D0725C16FDF00F917FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WW76S3NRC;
+				INFOPLIST_FILE = LucidAnimationsSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chanonly123.LucidAnimationsSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17412D0825C16FDF00F917FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5WW76S3NRC;
+				INFOPLIST_FILE = LucidAnimationsSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chanonly123.LucidAnimationsSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1795AB8A25BAD99E00FD4812 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -321,6 +440,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		17412D0625C16FDF00F917FC /* Build configuration list for PBXNativeTarget "LucidAnimationsSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17412D0725C16FDF00F917FC /* Debug */,
+				17412D0825C16FDF00F917FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1795AB7E25BAD99E00FD4812 /* Build configuration list for PBXProject "LucidAnimationsSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
