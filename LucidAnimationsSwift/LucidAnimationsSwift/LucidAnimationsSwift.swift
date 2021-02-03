@@ -7,30 +7,38 @@
 
 import UIKit
 
-public let lucid = LucidAnim()
-
-struct LucidAnimValues: Equatable {
+public struct LucidAnimValues: Equatable {
+    
+    public init(duration: Double = 0.3, delay: Double = 0.3, options: UIView.AnimationOptions = [], bounce: Bool = false, damping: CGFloat = 0.5, velocity: CGFloat = 0.0) {
+        self.duration = duration
+        self.delay = delay
+        self.options = options
+        self.bounce = bounce
+        self.damping = damping
+        self.velocity = velocity
+    }
+    
     var anim: Any = {} // (()->Void) or ((Int)->Void)
     
     var animated: Bool = true
     
     //
-    var duration: Double = 0.3
+    public var duration: Double = 0.3
     
     //
-    var delay: Double = 0.3
+    public var delay: Double = 0.3
     
     //
-    var options: UIView.AnimationOptions = []
+    public var options: UIView.AnimationOptions = []
     
     //
-    var bounce: Bool = false
+    public var bounce: Bool = false
     
     // usingSpringWithDamping
-    var damping: CGFloat = 0.5
+    public var damping: CGFloat = 0.5
     
     // initialSpringVelocity
-    var velocity: CGFloat = 0.0
+    public var velocity: CGFloat = 0.0
     
     // view index for sequential view animations
     var viewIndex = 0
@@ -47,7 +55,7 @@ struct LucidAnimValues: Equatable {
         return anim is ((Int) -> Void)
     }
     
-    static func == (lhs: LucidAnimValues, rhs: LucidAnimValues) -> Bool {
+    public static func == (lhs: LucidAnimValues, rhs: LucidAnimValues) -> Bool {
         return lhs.animated == rhs.animated &&
             lhs.delay == rhs.delay &&
             lhs.options == rhs.options &&
@@ -61,15 +69,21 @@ struct LucidAnimValues: Equatable {
 public class LucidAnim {
     var queue = [LucidAnimValues]()
     var backupQueue = [LucidAnimValues]()
-    var currentValues = LucidAnimValues()
+    lazy var currentValues = defaultValues
     var isTesting = false
     
+    public var defaultValues = LucidAnimValues()
+    
     public init() {}
+    
+    public init(_ defaultValues: LucidAnimValues) {
+        self.defaultValues = defaultValues
+    }
     
     public func clear() {
         queue.removeAll()
         backupQueue.removeAll()
-        currentValues = LucidAnimValues()
+        currentValues = defaultValues
     }
     
     public func flat(comp: @escaping (() -> Void)) {
@@ -77,7 +91,7 @@ public class LucidAnim {
         currentValues.anim = comp
         
         backupQueue.append(currentValues)
-        currentValues = LucidAnimValues()
+        currentValues = defaultValues
     }
     
     public func anim(anim: @escaping (() -> Void)) {
@@ -85,7 +99,7 @@ public class LucidAnim {
         currentValues.anim = anim
         
         backupQueue.append(currentValues)
-        currentValues = LucidAnimValues()
+        currentValues = defaultValues
     }
     
     public func serially(count: Int, interval: Double, anim: @escaping ((Int) -> Void)) {
@@ -101,15 +115,12 @@ public class LucidAnim {
             currentValues.anim = anim
             backupQueue.append(currentValues)
         }
-        currentValues = LucidAnimValues()
+        currentValues = defaultValues
     }
     
     public func execute() {
         queue.removeAll()
         queue.append(contentsOf: backupQueue)
-        if self === lucid {
-            backupQueue.removeAll()
-        }
         execute_()
     }
 
