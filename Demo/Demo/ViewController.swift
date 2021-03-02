@@ -33,25 +33,25 @@ class ViewController: UIViewController {
         }
         lucid.execute()
         
-        DispatchQueue.main.async {
-            let lucid = LucidAnim()
-            let cells = self.tableView.visibleCells
-            cells.forEach { $0.transform = .init(translationX: 0, y: 20); $0.alpha = 0 }
-            lucid.set(duration: 0.15).serially(count: cells.count, interval: 0.06, anim: {
-                cells[$0].transform = .identity; cells[$0].alpha = 1
-            })
-            lucid.execute()
-        }
-        
-        DispatchQueue.main.async {
-            let lucid = LucidAnim()
-            let cells = self.collectionView.visibleCells.sorted(by: { $0.frame.origin.y < $1.frame.origin.y })
-            cells.forEach { $0.transform = .init(translationX: 0, y: 20); $0.alpha = 0 }
-            lucid.set(duration: 0.15).serially(count: cells.count, interval: 0.06, anim: {
-                cells[$0].transform = .identity; cells[$0].alpha = 1
-            })
-            lucid.execute()
-        }
+//        DispatchQueue.main.async {
+//            let lucid = LucidAnim()
+//            let cells = self.tableView.visibleCells.sorted(by: { self.tableView.indexPath(for: $0)!.row < self.tableView.indexPath(for: $1)!.row })
+//            cells.forEach { $0.transform = .init(translationX: 0, y: 20); $0.alpha = 0 }
+//            lucid.set(duration: 0.15).serially(count: cells.count, interval: 0.06, anim: {
+//                cells[$0].transform = .identity; cells[$0].alpha = 1
+//            })
+//            lucid.execute()
+//        }
+//
+//        DispatchQueue.main.async {
+//            let lucid = LucidAnim()
+//            let cells = self.collectionView.visibleCells.sorted(by: { $0.frame.origin.y < $1.frame.origin.y })
+//            cells.forEach { $0.transform = .init(translationX: 0, y: 20); $0.alpha = 0 }
+//            lucid.set(duration: 0.15).serially(count: cells.count, interval: 0.06, anim: {
+//                cells[$0].transform = .identity; cells[$0].alpha = 1
+//            })
+//            lucid.execute()
+//        }
     }
 
 

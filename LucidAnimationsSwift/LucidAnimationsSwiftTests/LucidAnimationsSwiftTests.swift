@@ -13,6 +13,7 @@ class LucidAnimationsSwiftTests: XCTestCase {
         let exp = expectation(description: #function)
 
         let view = UIView()
+        let lucid = LucidAnim()
         lucid.isTesting = true
         lucid.anim { view.alpha = 0 }
         lucid.anim { view.alpha = 0 }
@@ -22,7 +23,7 @@ class LucidAnimationsSwiftTests: XCTestCase {
         
         waitForExpectations(timeout: 5) { (_) in
             XCTAssert(lucid.queue.isEmpty)
-            XCTAssert(lucid.backupQueue.isEmpty)
+            XCTAssert(!lucid.backupQueue.isEmpty)
         }
     }
     
@@ -50,6 +51,7 @@ class LucidAnimationsSwiftTests: XCTestCase {
         let exp = expectation(description: #function)
 
         let view = UIView()
+        let lucid = LucidAnim()
         lucid.isTesting = true
         lucid.serially(count: 10, interval: 0.1, anim: { _ in view.alpha = 1 })
         lucid.flat { exp.fulfill() }
@@ -58,7 +60,7 @@ class LucidAnimationsSwiftTests: XCTestCase {
         
         waitForExpectations(timeout: 5) { (_) in
             XCTAssert(lucid.queue.isEmpty)
-            XCTAssert(lucid.backupQueue.isEmpty)
+            XCTAssert(!lucid.backupQueue.isEmpty)
         }
     }
     
